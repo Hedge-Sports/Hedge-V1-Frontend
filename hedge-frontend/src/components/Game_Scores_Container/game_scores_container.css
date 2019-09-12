@@ -1,0 +1,5 @@
+.game-scores-container {
+  height: 200px;
+  background-color: #f7f7f7;
+  z-index: 0;
+}
