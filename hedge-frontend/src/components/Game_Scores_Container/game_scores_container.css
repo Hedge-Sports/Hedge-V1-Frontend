@@ -2,4 +2,27 @@
   height: 200px;
   background-color: #f7f7f7;
   z-index: 0;
+  display: flex;
+  padding: 15px;
+  overflow-x: scroll;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin: 0 20px;
+  padding: 10px;
+}
+
+.home-team,
+.away-team {
+  width: 230px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.away-team {
+  border-bottom: 1px solid #8a8a8a8a;
 }
