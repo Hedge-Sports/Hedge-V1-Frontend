@@ -4,11 +4,15 @@ import React from "react";
 export default function Game_Scores_Container(props) {
   let getTheLiveMatches = () => {
     let allLiveMatches = props.liveMatches;
+    let teamImage = props.teamImages;
     return allLiveMatches.map((match, i) => {
       return (
         <div className="card-container">
           <div className="home-team">
-            <p>{match.hometeam.name}</p>
+            <div>
+              {/* <img src={teamImage} /> */}
+              <p>{match.hometeam.name}</p>
+            </div>
             <p>{match.hometeam.totalscore}</p>
           </div>
           <div className="away-team">

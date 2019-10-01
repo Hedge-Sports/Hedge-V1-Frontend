@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Nav() {
   return (
-    <nav>
+    <div className="nav">
       <div className="right-side">
         <div className="logo">
           <img src="/images/Hedge-Logo.svg" />
@@ -32,6 +32,6 @@ export default function Nav() {
           </a>
         </div>
       </div>
-    </nav>
+    </div>
   );
 }
