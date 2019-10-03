@@ -1,9 +1,77 @@
+.dashboard-container {
+  padding: 50px 40px;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
 }
 
+/* Making the lobby/secondary market nav */
 .toggable-nav {
+  background-color: #def6ee;
+  padding: 7px;
+  border-radius: 40px;
   display: flex;
   justify-content: space-between;
 }
+
+.toggable-nav input[type="radio"] {
+  display: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.lobby-option,
+.secondary-market-option {
+}
+
+.secondary-market-option {
+  right: 0;
+}
+
+.toggable-nav span {
+  display: flex;
+  padding: 15px 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggable-nav label {
+  font-weight: bold;
+  color: #21c493;
+  font-size: 20px;
+  transition: all 0.1s ease-in-out;
+}
+
+.toggable-nav input:checked + label {
+  background-color: #21c493;
+  border-radius: 40px;
+  color: white;
+}
+
+.box-or-list-switch {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 10%;
+}
+
+.box-or-list-switch input[type="radio"] {
+  display: none;
+}
+
+.box-or-list-switch label {
+  font-size: 35px;
+  color: #d9d9d9;
+}
+
+.box-or-list-switch input:checked + label {
+  color: #21c493;
+}
+
+.box-or-list-switch .list-option {
+  border-right: 1px solid #def6ee;
+  padding-right: 10px;
+}
+
+/* end of lobby nav */

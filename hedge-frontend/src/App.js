@@ -37,7 +37,7 @@ export default class App extends Component {
         "http://www.goalserve.com/getfeed/ea6b5a174377459cabb53a6076e2458f/football/atl_rosters?json=1"
       )
       .then(response => {
-        this.setState({ TeamLogos: response.data.team });
+        this.setState({ TeamLogos: response.data.team.image });
         console.log("Team Logos", this.state.TeamLogos);
       });
   };
