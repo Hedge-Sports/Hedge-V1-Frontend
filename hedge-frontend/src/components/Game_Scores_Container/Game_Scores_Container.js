@@ -3,6 +3,9 @@ import React from "react";
 
 export default function Game_Scores_Container(props) {
   let getTheLiveMatches = () => {
+    let baseStr64 = props.teamImages;
+    //just query select the image tag and add this attribute
+    // imgElem.setAttribute("src", "data:image/jpg;base64," + baseStr64);
     let allLiveMatches = props.liveMatches;
     let teamImage = props.teamImages;
     return allLiveMatches.map((match, i) => {

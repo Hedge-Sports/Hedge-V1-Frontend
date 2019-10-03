@@ -70,8 +70,19 @@ nav {
 }
 
 .box-or-list-switch .list-option {
-  border-right: 1px solid #def6ee;
+  border-right: 1px solid #d9d9d9;
   padding-right: 10px;
 }
 
 /* end of lobby nav */
+
+.sports-options ul {
+  /* width: 50%; */
+  padding: 0;
+}
+
+.sports-options a {
+  color: #d9d9d9;
+  font-size: 25px;
+  margin: 20px 10px;
+}
