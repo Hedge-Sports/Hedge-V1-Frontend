@@ -38,7 +38,6 @@ export default class App extends Component {
       )
       .then(response => {
         this.setState({ TeamLogos: response.data.team.image });
-        console.log("Team Logos", this.state.TeamLogos);
       });
   };
 

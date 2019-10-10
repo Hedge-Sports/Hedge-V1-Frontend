@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import "./dashboard.css";
 import dummeyData from "../Dummy";
 import Lobby from "../Lobby/Lobby";
-
+// import { NavLink } from "react-router-dom";
+//This is the main dashboard that holds the lobby and secondary market components
+// it holds the states for the contests
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -14,9 +16,15 @@ export default class Dashboard extends Component {
       dummyData: dummeyData,
       contest3Man: [],
       contest5Man: [],
-      contest9Man: []
+      contest9Man: [],
+      sportSelected: "NFL"
     };
   }
+
+  setSportForWhichContest = e => {
+    this.setState({ sportSelected: e.target.value });
+    console.log("sport selected", this.state.sportSelected);
+  };
 
   filterContestData = contests => {
     contests.map(singleContest => {
@@ -105,16 +113,30 @@ export default class Dashboard extends Component {
         </nav>
         <div className="sports-options">
           <ul>
-            <a>All</a>
-            <a>NFL</a>
-            <a>NHL</a>
-            <a>NBA</a>
-            <a>MLB</a>
-            <a>PGA</a>
-            <a>Women's Soccer</a>
+            <button value="All" onClick={e => this.setSportForWhichContest(e)}>
+              All
+            </button>
+            <button value="NFL" onClick={e => this.setSportForWhichContest(e)}>
+              NFL
+            </button>
+            <button value="NHL" onClick={e => this.setSportForWhichContest(e)}>
+              NHL
+            </button>
+            <button value="NBA" onClick={e => this.setSportForWhichContest(e)}>
+              NBA
+            </button>
+            <button value="MLB" onClick={e => this.setSportForWhichContest(e)}>
+              MLB
+            </button>
+            <button value="PGA" onClick={e => this.setSportForWhichContest(e)}>
+              PGA
+            </button>
+            <button value="WS" onClick={e => this.setSportForWhichContest(e)}>
+              Woman's Soccer
+            </button>
           </ul>
         </div>
-        {this.state.lobbySelected && (
+        {this.state.sportSelected && this.state.lobbySelected && (
           <Lobby
             contest3Man={this.state.contest3Man}
             contest5Man={this.state.contest5Man}

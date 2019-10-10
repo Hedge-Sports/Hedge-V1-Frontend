@@ -1,0 +1,57 @@
+.contest-card {
+  display: flex;
+  align-items: flex-start;
+  box-shadow: 0px 0px 7px 0px #91919196;
+  border-radius: 10px;
+  margin-right: 30px;
+  margin-left: 10px;
+  padding: 40px 20px 20px 20px;
+  height: 150px;
+  /* width: 400px; */
+}
+
+.contest-card img {
+  width: 20%;
+}
+
+.contest-card-top {
+  display: flex;
+  flex-direction: column;
+  /* width: 350px; */
+}
+
+.contest-card-top h5 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.contest-card-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contest-card-bottom span {
+  color: #27ad5f;
+}
+
+.contest-card-top p {
+  margin: 0;
+  margin-top: 5px;
+  font-size: 18px;
+}
+.contest-card-content {
+  width: 350px;
+  padding: 0 10px;
+}
+
+.contest-card-img-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contest-card-content hr {
+  /* border: none; */
+  border: 0.8px solid #86868611;
+  /* width: 2px;*/
+  /* color: #27ad5f; */
+}

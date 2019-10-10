@@ -10,7 +10,7 @@ export default function Game_Scores_Container(props) {
     let teamImage = props.teamImages;
     return allLiveMatches.map((match, i) => {
       return (
-        <div className="card-container">
+        <div className="card-container" key={i}>
           <div className="home-team">
             <div>
               {/* <img src={teamImage} /> */}

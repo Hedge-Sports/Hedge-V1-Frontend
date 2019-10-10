@@ -77,12 +77,15 @@ nav {
 /* end of lobby nav */
 
 .sports-options ul {
-  /* width: 50%; */
   padding: 0;
 }
-
-.sports-options a {
+.sports-options button {
   color: #d9d9d9;
   font-size: 25px;
   margin: 20px 10px;
+  border: none;
+}
+
+.sports-options button:focus {
+  outline: none;
 }
