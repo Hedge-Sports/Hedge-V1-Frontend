@@ -15,14 +15,39 @@ export default class Dashboard extends Component {
       listViewSelected: false,
       dummyData: dummeyData,
       contest3Man: [],
+      filteredLeague3ManContest: [],
       contest5Man: [],
+      filteredLeague5ManContest: [],
       contest9Man: [],
-      sportSelected: "NFL"
+      filteredLeague9ManContest: [],
+      sportSelected: "NFL",
+      activeColor: true
     };
   }
 
   setSportForWhichContest = e => {
     this.setState({ sportSelected: e.target.value });
+    e.target.style.color = "#21c493";
+    let filtered3ManContestWithLeague = this.state.contest3Man.filter(
+      contest => {
+        return contest.leagueName == e.target.value;
+      }
+    );
+    let filtered5ManContestWithLeague = this.state.contest5Man.filter(
+      contest => {
+        return contest.leagueName == e.target.value;
+      }
+    );
+    let filtered9ManContestWithLeague = this.state.contest9Man.filter(
+      contest => {
+        return contest.leagueName == e.target.value;
+      }
+    );
+    this.setState({
+      filteredLeague3ManContest: filtered3ManContestWithLeague,
+      filteredLeague5ManContest: filtered5ManContestWithLeague,
+      filteredLeague9ManContest: filtered9ManContestWithLeague
+    });
     console.log("sport selected", this.state.sportSelected);
   };
 
@@ -136,11 +161,11 @@ export default class Dashboard extends Component {
             </button>
           </ul>
         </div>
-        {this.state.sportSelected && this.state.lobbySelected && (
+        {this.state.lobbySelected && (
           <Lobby
-            contest3Man={this.state.contest3Man}
-            contest5Man={this.state.contest5Man}
-            contest9Man={this.state.contest9Man}
+            contest3Man={this.state.filteredLeague3ManContest}
+            contest5Man={this.state.filteredLeague5ManContest}
+            contest9Man={this.state.filteredLeague9ManContest}
           />
         )}
       </div>

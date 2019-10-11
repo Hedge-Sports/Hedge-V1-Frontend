@@ -96,6 +96,13 @@ let dummeyData = [
     contestLength: "Thursday-Sunday",
     buyInAmount: "$2.00",
     payoutAmount: "$50.00"
+  },
+  {
+    leagueName: "NHL",
+    contestSize: "3-Man",
+    contestLength: "Thursday-Sunday",
+    buyInAmount: "$2.00",
+    payoutAmount: "$50.00"
   }
 ];
 
