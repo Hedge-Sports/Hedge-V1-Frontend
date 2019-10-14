@@ -20,32 +20,44 @@ export default class Dashboard extends Component {
       filteredLeague5ManContest: [],
       contest9Man: [],
       filteredLeague9ManContest: [],
-      sportSelected: "NFL",
-      activeColor: false
+      totalSports: [
+        { index: 1, sportName: "All", value: "All" },
+        { index: 2, sportName: "NFL", value: "NFL" },
+        { index: 3, sportName: "NHL", value: "NHL" },
+        { index: 4, sportName: "NBA", value: "NBA" },
+        { index: 5, sportName: "MLB", value: "MLB" },
+        {
+          index: 6,
+          sportName: "PGA",
+          value: "PGA"
+        },
+        {
+          index: 7,
+          sportName: "Woman's Soccer",
+          value: "WS"
+        }
+      ],
+      sportSelected: 0
     };
   }
 
-  setSportForWhichContest = e => {
-    this.setState({ sportSelected: e.target.value });
-    //setting the color of the sports nav
-    const currentState = this.state.activeColor;
-
-    this.setState({ activeColor: !this.state.activeColor });
-    console.log("current state", this.state.activeColor);
-
+  //this method sets the selected sport option to the state so the color can be changed
+  //this also filters the whole array of contests and breaks them down via sport selected
+  setSportForWhichContest = singleSport => {
+    this.setState({ sportSelected: singleSport.index });
     let filtered3ManContestWithLeague = this.state.contest3Man.filter(
       contest => {
-        return contest.leagueName == e.target.value;
+        return contest.leagueName == singleSport.value;
       }
     );
     let filtered5ManContestWithLeague = this.state.contest5Man.filter(
       contest => {
-        return contest.leagueName == e.target.value;
+        return contest.leagueName == singleSport.value;
       }
     );
     let filtered9ManContestWithLeague = this.state.contest9Man.filter(
       contest => {
-        return contest.leagueName == e.target.value;
+        return contest.leagueName == singleSport.value;
       }
     );
     this.setState({
@@ -53,9 +65,9 @@ export default class Dashboard extends Component {
       filteredLeague5ManContest: filtered5ManContestWithLeague,
       filteredLeague9ManContest: filtered9ManContestWithLeague
     });
-    console.log("sport selected", this.state.sportSelected);
   };
 
+  //this method filters the total array of contests via group size
   filterContestData = contests => {
     contests.map(singleContest => {
       if (singleContest.contestSize === "3-Man") {
@@ -68,6 +80,7 @@ export default class Dashboard extends Component {
     });
   };
 
+  //this method toggle between the lobby view and the secondary market view
   handleLobbyAndSecondaryMarketToggle = event => {
     this.setState({
       lobbySelected: !this.state.lobbySelected,
@@ -75,6 +88,7 @@ export default class Dashboard extends Component {
     });
   };
 
+  //this method toggle between the box and list view
   handleBoxOrListViewToggle = event => {
     this.setState({
       boxViewSelected: !this.state.boxViewSelected,
@@ -82,7 +96,22 @@ export default class Dashboard extends Component {
     });
   };
 
-  handleListOrBoxToggle = event => {};
+  //creates the sport option button components
+  generateSportButtonComponents = () => {
+    let totalSportsNames = this.state.totalSports;
+    return totalSportsNames.map(singleSport => {
+      console.log(singleSport.index, "single sport");
+      return (
+        <GenerateSportOption
+          key={singleSport.index}
+          value={singleSport.value}
+          clicked={singleSport.index === this.state.sportSelected}
+          sportName={singleSport.sportName}
+          onClick={() => this.setSportForWhichContest(singleSport)}
+        />
+      );
+    });
+  };
 
   componentDidMount() {
     this.filterContestData(this.state.dummyData);
@@ -142,29 +171,7 @@ export default class Dashboard extends Component {
           </div>
         </nav>
         <div className="sports-options">
-          <ul>
-            <button value="All" onClick={e => this.setSportForWhichContest(e)}>
-              All
-            </button>
-            <button value="NFL" onClick={e => this.setSportForWhichContest(e)}>
-              NFL
-            </button>
-            <button value="NHL" onClick={e => this.setSportForWhichContest(e)}>
-              NHL
-            </button>
-            <button value="NBA" onClick={e => this.setSportForWhichContest(e)}>
-              NBA
-            </button>
-            <button value="MLB" onClick={e => this.setSportForWhichContest(e)}>
-              MLB
-            </button>
-            <button value="PGA" onClick={e => this.setSportForWhichContest(e)}>
-              PGA
-            </button>
-            <button value="WS" onClick={e => this.setSportForWhichContest(e)}>
-              Woman's Soccer
-            </button>
-          </ul>
+          <ul>{this.generateSportButtonComponents()}</ul>
         </div>
         {this.state.lobbySelected && (
           <Lobby
@@ -177,3 +184,15 @@ export default class Dashboard extends Component {
     );
   }
 }
+
+//this is a react component method that makes a button for a sport option
+const GenerateSportOption = props => (
+  <button
+    className={`activeSport ${props.clicked ? "active" : "default"}`}
+    value={props.value}
+    onClick={props.onClick}
+    clicked
+  >
+    {props.sportName}
+  </button>
+);

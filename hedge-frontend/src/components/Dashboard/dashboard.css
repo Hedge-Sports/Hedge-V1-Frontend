@@ -79,17 +79,20 @@ nav {
 .sports-options ul {
   padding: 0;
 }
-.sports-options button {
-  color: #d9d9d9;
-  font-size: 25px;
-  margin: 20px 10px;
-  border: none;
-}
 
 .sports-options button:focus {
   outline: none;
 }
 
-/* .sports-options ul .activeSportSelectionColor {
+.activeSport {
+  font-size: 25px;
+  margin: 20px 10px;
+  border: none;
+}
+.active {
   color: #21c493;
-} */
+}
+
+.default {
+  color: #d9d9d9;
+}
