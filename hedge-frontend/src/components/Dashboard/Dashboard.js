@@ -21,13 +21,18 @@ export default class Dashboard extends Component {
       contest9Man: [],
       filteredLeague9ManContest: [],
       sportSelected: "NFL",
-      activeColor: true
+      activeColor: false
     };
   }
 
   setSportForWhichContest = e => {
     this.setState({ sportSelected: e.target.value });
-    e.target.style.color = "#21c493";
+    //setting the color of the sports nav
+    const currentState = this.state.activeColor;
+
+    this.setState({ activeColor: !this.state.activeColor });
+    console.log("current state", this.state.activeColor);
+
     let filtered3ManContestWithLeague = this.state.contest3Man.filter(
       contest => {
         return contest.leagueName == e.target.value;

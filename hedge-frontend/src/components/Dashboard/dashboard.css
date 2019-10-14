@@ -89,3 +89,7 @@ nav {
 .sports-options button:focus {
   outline: none;
 }
+
+/* .sports-options ul .activeSportSelectionColor {
+  color: #21c493;
+} */
