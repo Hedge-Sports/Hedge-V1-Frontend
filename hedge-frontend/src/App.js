@@ -15,6 +15,7 @@ export default class App extends Component {
     };
   }
 
+  //testing an API call to Goalserve to get NFL updates
   getTheLiveScores = () => {
     axios
       .get(
@@ -31,6 +32,7 @@ export default class App extends Component {
       });
   };
 
+  //Testing API to get a the team image
   getTheTeamImages = () => {
     axios
       .get(
@@ -41,6 +43,7 @@ export default class App extends Component {
       });
   };
 
+  //Execute both functions on load of app
   componentDidMount() {
     this.getTheLiveScores();
     this.getTheTeamImages();

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Contest_Card from "../Contest_Card/Contest_Card";
 
 export default class Lobby extends Component {
+  //this method returns 3 man contest cards
   show3ManContest = () => {
     return this.props.contest3Man.map((contest, key) => {
       return (
@@ -17,6 +18,7 @@ export default class Lobby extends Component {
       );
     });
   };
+  //this method returns 5 man contest cards
   show5ManContest = () => {
     return this.props.contest5Man.map((contest, key) => {
       return (
@@ -31,6 +33,7 @@ export default class Lobby extends Component {
       );
     });
   };
+  //this method returns 9 man contest cards
   show9ManContest = () => {
     return this.props.contest9Man.map((contest, key) => {
       return (
