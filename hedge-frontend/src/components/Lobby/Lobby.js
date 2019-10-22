@@ -1,6 +1,7 @@
 import "./lobby.css";
 import React, { Component } from "react";
 import Contest_Card from "../Contest_Card/Contest_Card";
+import Player_Selection_Modal from "../Player_Selection_Modal/Player_Selection_Modal";
 
 export default class Lobby extends Component {
   //this method returns 3 man contest cards
@@ -14,6 +15,7 @@ export default class Lobby extends Component {
           contestLength={contest.contestLength}
           buyInAmount={contest.buyInAmount}
           payoutAmount={contest.payoutAmount}
+          onClick={this.props.togglePlayerModalFunction}
         />
       );
     });

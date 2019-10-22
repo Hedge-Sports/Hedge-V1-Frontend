@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./dashboard.css";
 import dummeyData from "../Dummy";
 import Lobby from "../Lobby/Lobby";
-// import { NavLink } from "react-router-dom";
+import Player_Selection_Modal from "../Player_Selection_Modal/Player_Selection_Modal";
+
 //This is the main dashboard that holds the lobby and secondary market components
 // it holds the states for the contests
 export default class Dashboard extends Component {
@@ -37,7 +38,8 @@ export default class Dashboard extends Component {
           value: "WS"
         }
       ],
-      sportSelected: 0
+      sportSelected: 0,
+      showPlayerModal: false
     };
   }
 
@@ -113,6 +115,12 @@ export default class Dashboard extends Component {
     });
   };
 
+  //toggle the state of the modal
+  toggleStateOfModal = e => {
+    this.setState({ showPlayerModal: true });
+    // console.log("Worked", e.target);
+  };
+
   componentDidMount() {
     this.filterContestData(this.state.dummyData);
   }
@@ -178,8 +186,10 @@ export default class Dashboard extends Component {
             contest3Man={this.state.filteredLeague3ManContest}
             contest5Man={this.state.filteredLeague5ManContest}
             contest9Man={this.state.filteredLeague9ManContest}
+            togglePlayerModalFunction={this.toggleStateOfModal}
           />
         )}
+        <Player_Selection_Modal show={this.state.showPlayerModal} />
       </div>
     );
   }

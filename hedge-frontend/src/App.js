@@ -33,20 +33,20 @@ export default class App extends Component {
   };
 
   //Testing API to get a the team image
-  getTheTeamImages = () => {
-    axios
-      .get(
-        "http://www.goalserve.com/getfeed/ea6b5a174377459cabb53a6076e2458f/football/atl_rosters?json=1"
-      )
-      .then(response => {
-        this.setState({ TeamLogos: response.data.team.image });
-      });
-  };
+  // getTheTeamImages = () => {
+  //   axios
+  //     .get(
+  //       "http://www.goalserve.com/getfeed/ea6b5a174377459cabb53a6076e2458f/football/atl_rosters?json=1"
+  //     )
+  //     .then(response => {
+  //       this.setState({ TeamLogos: response.data.team.image });
+  //     });
+  // };
 
   //Execute both functions on load of app
   componentDidMount() {
     this.getTheLiveScores();
-    this.getTheTeamImages();
+    // this.getTheTeamImages();
   }
   render() {
     return (
@@ -54,7 +54,7 @@ export default class App extends Component {
         <Nav />
         <GameScoresContainer
           liveMatches={this.state.LiveMatches}
-          teamImages={this.state.TeamLogos}
+          // teamImages={this.state.TeamLogos}
         />
         <Dashboard />
       </div>
