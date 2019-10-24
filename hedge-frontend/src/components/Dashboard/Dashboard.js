@@ -121,6 +121,10 @@ export default class Dashboard extends Component {
     // console.log("Worked", e.target);
   };
 
+  closeTheModal = e => {
+    this.setState({ showPlayerModal: false });
+  };
+
   componentDidMount() {
     this.filterContestData(this.state.dummyData);
   }
@@ -189,7 +193,10 @@ export default class Dashboard extends Component {
             togglePlayerModalFunction={this.toggleStateOfModal}
           />
         )}
-        <Player_Selection_Modal show={this.state.showPlayerModal} />
+        <Player_Selection_Modal
+          onClose={this.closeTheModal}
+          show={this.state.showPlayerModal}
+        />
       </div>
     );
   }
