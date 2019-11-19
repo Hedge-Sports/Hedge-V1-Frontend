@@ -11,7 +11,12 @@ export default class Player_Selection_Modal extends Component {
         <h1 className=""></h1>
         <div>{this.props.children}</div>
         <div>
-          <button onClick={this.props.onClose}>Close</button>
+          <button
+            className="close-player-modal-button"
+            onClick={this.props.onClose}
+          >
+            Close
+          </button>
         </div>
       </div>
     );
