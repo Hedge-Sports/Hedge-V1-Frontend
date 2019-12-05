@@ -8,8 +8,15 @@ export default class Player_Selection_Modal extends Component {
     }
     return (
       <div className="player-selection-container">
-        <h1 className=""></h1>
-        <div>{this.props.children}</div>
+        <div className="modal-nav-container">
+          <ul className="modal-nav">
+            <li>Lineup Options</li>
+            <li>Rules/Scoring</li>
+            <li>Active Users</li>
+            <li>Pay Outs</li>
+          </ul>
+        </div>
+        <div className="modal-content">test{this.props.children}</div>
         <div>
           <button
             className="close-player-modal-button"
